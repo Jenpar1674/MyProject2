@@ -44,31 +44,49 @@ const itemsPerPage = 10;
 ***/
 /*points to first student and last-range of students*/
 
-const showPage = (list, page) =>{
+const showPage = (listOfStudents, page) =>{
    let indexStart = (page * itemsPerPage) - itemsPerPage;                
-   let indexEnd = (page * itemsPerPage)-1;
+   let indexEnd = (page * itemsPerPage);
 
-for (let x=0;  x < list.length; x++){
-if(x >=indexStart && x < indexEnd){
-   list[x].style.display = '';
+   for (let x=0;  x < listOfStudents.length; x++){
+      if(x >=indexStart && x < indexEnd){
+         listOfStudents[x].style.display = 'block';
+      }
+      else {
+         listOfStudents[x].style.display = 'none';
+      }
+      /*console.log('item ' +listOfStudents[x].innerHTML)
+   }
+
+
 }
-else {
-   list[x].style.display = 'none';
+/*** total of pages***/
+
+const pageAppend = (listOfStudents) =>{
+   
+  let totalPages = Math.ceil(listOfStudents.length/itemsPerPage);
+  const div = document.createElement('div'); 
+  const ul = document.createElement('ul');
+  div.className = 'pagination';
+  div.appendChild(ul);  
+  
+  
+  for (let x = 0; x < totalPages; x++){
+      let li =document.createElement('li');
+      let a = document.createElement('a');
+      a.href='#';
 }
 
-}
-
 
 }
+showPage(listOfStudents,2);
 
-console.log (x)
+pageAppend(listOfStudents);
+
 
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons.
 ***/
-
-
-
 
 
