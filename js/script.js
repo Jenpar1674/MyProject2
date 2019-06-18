@@ -17,6 +17,14 @@ FSJS project 2 - List Filter and Pagination
    scoped to that function.
 ***/
 
+/* global variables*/
+
+let listOfStudents = document.querySelectorAll('.student-item');
+const itemsPerPage = 10;
+
+
+
+
 
 
 
@@ -34,9 +42,26 @@ FSJS project 2 - List Filter and Pagination
        that will be passed into the parens later when you call or 
        "invoke" the function 
 ***/
+/*points to first student and last-range of students*/
+
+const showPage = (list, page) =>{
+   let indexStart = (page * itemsPerPage) - itemsPerPage;                
+   let indexEnd = (page * itemsPerPage)-1;
+
+for (let x=0;  x < list.length; x++){
+if(x >=indexStart && x < indexEnd){
+   list[x].style.display = '';
+}
+else {
+   list[x].style.display = 'none';
+}
+
+}
 
 
+}
 
+console.log (x)
 
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
@@ -47,4 +72,3 @@ FSJS project 2 - List Filter and Pagination
 
 
 
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
