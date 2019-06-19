@@ -48,40 +48,56 @@ const showPage = (listOfStudents, page) =>{
    let indexStart = (page * itemsPerPage) - itemsPerPage;                
    let indexEnd = (page * itemsPerPage);
 
-   for (let x=0;  x < listOfStudents.length; x++){
-      if(x >=indexStart && x < indexEnd){
-         listOfStudents[x].style.display = 'block';
+   for (let i=0;  i < listOfStudents.length; i++){
+      if(i >=indexStart && i < indexEnd){
+         listOfStudents[i].style.display = 'block';
       }
       else {
-         listOfStudents[x].style.display = 'none';
+         listOfStudents[i].style.display = 'none';
       }
-      /*console.log('item ' +listOfStudents[x].innerHTML)*/
+      /*console.log('item ' +listOfStudents[i].innerHTML)*/
             } 
 }
 
 
-showPage(listOfStudents,2);
+showPage(listOfStudents,5);
 
 /*** total of pages***/
-const pageAppend = (listOfStudents) =>{
+const pageAppend =(listOfStudents,page)=>{
    
+
    let totalPages = Math.ceil(listOfStudents.length/itemsPerPage);
-   const div = document.createElement('div'); 
-   const ul = document.createElement('ul');
+  
+   console.log(totalPages);
+
+   let div = document.createElement('div'); 
    div.className = 'pagination';
    document.querySelector('.page').appendChild(div);
+   let ul = document.createElement('ul');
    div.appendChild(ul);  
    
    
-   for (let x = 0; x < totalPages; x++){
+   
+   
+   for (let i = 0; i < totalPages; i++){
        let li =document.createElement('li');
        let a = document.createElement('a');
-       
        a.href='#';
- }
+       a.textContent = i
+       
+
+ul.addEventListener
+
+
+
+       
+       console.log(listOfStudents)
+}
  
+}
  
- }
+
+ 
  showPage(listOfStudents,2);
  
  pageAppend(listOfStudents);
