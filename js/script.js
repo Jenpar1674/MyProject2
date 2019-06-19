@@ -55,34 +55,36 @@ const showPage = (listOfStudents, page) =>{
       else {
          listOfStudents[x].style.display = 'none';
       }
-      /*console.log('item ' +listOfStudents[x].innerHTML)
-   }
-
-
-}
-/*** total of pages***/
-
-const pageAppend = (listOfStudents) =>{
-   
-  let totalPages = Math.ceil(listOfStudents.length/itemsPerPage);
-  const div = document.createElement('div'); 
-  const ul = document.createElement('ul');
-  div.className = 'pagination';
-  div.appendChild(ul);  
-  
-  
-  for (let x = 0; x < totalPages; x++){
-      let li =document.createElement('li');
-      let a = document.createElement('a');
-      a.href='#';
+      /*console.log('item ' +listOfStudents[x].innerHTML)*/
+            } 
 }
 
 
-}
 showPage(listOfStudents,2);
 
-pageAppend(listOfStudents);
-
+/*** total of pages***/
+const pageAppend = (listOfStudents) =>{
+   
+   let totalPages = Math.ceil(listOfStudents.length/itemsPerPage);
+   const div = document.createElement('div'); 
+   const ul = document.createElement('ul');
+   div.className = 'pagination';
+   document.querySelector('.page').appendChild(div);
+   div.appendChild(ul);  
+   
+   
+   for (let x = 0; x < totalPages; x++){
+       let li =document.createElement('li');
+       let a = document.createElement('a');
+       
+       a.href='#';
+ }
+ 
+ 
+ }
+ showPage(listOfStudents,2);
+ 
+ pageAppend(listOfStudents);
 
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
