@@ -89,8 +89,23 @@ const pageAppend =(list)=>{
       ul.appendChild(li);
       li.appendChild(a);
 
-   div.addEventListener('click',()=>{
+   a.addEventListener('click',(event)=>{
+      event.target.className="active";
+      pageNumber = event.target.textContent;
+      
+      for (let x = 0; x < links.length; x++) {
+         links [x].classList.remove ('active');                
+      }
+      link.className = "active";                               
+    
+    showPage (list,pageNumber);
+   
+   
+   
+         
 
+
+      
    });
    
    
