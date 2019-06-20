@@ -71,32 +71,32 @@ const pageAppend =(list)=>{
    console.log(totalPages);
 
    let div = document.createElement('div'); 
-   div.className = 'pagination';
-   document.querySelector('.page').appendChild(div);
+   let page = document.querySelector('.page');
    let ul = document.createElement('ul');
    div.appendChild(ul);  
+   div.setAttribute('class','pagination');
+   page.appendChild(div);
    
-   
-   
-   
-   for (let i = 0; i < totalPages; i++){
-         let li =document.createElement('li');
-         let a = document.createElement('a');
-         ul.appendChild(li);
-         a.href = '#';
-
-            
-      
-   
-         
-
 
    
-   }
-       
-    
+
+   
+   for (let i = 1; i <= totalPages; i++){
+       let li =document.createElement('li');
+      let a = document.createElement('a');
+      a.href = '#';
+      a.textContent = i; 
+      ul.appendChild(li);
+      li.appendChild(a);
+
+   div.addEventListener('click',()=>{
+
+   });
+   
+   
 }
-console.log(listOfStudents)
+   }
+
 
  
 
@@ -107,9 +107,6 @@ console.log(listOfStudents)
  
  pageAppend(listOfStudents);
 
-/*** 
-   Create the `appendPageLinks function` to generate, append, and add 
-   functionality to the pagination buttons.
-***/
+
 
 
