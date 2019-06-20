@@ -44,7 +44,7 @@ const itemsPerPage = 10;
 ***/
 /*points to first student and last-range of students*/
 
-const showPage = (listOfStudents, page) =>{
+const showPage = (list, page) =>{
    let indexStart = (page * itemsPerPage) - itemsPerPage;                
    let indexEnd = (page * itemsPerPage);
 
@@ -60,10 +60,10 @@ const showPage = (listOfStudents, page) =>{
 }
 
 
-showPage(listOfStudents,5);
+showPage(listOfStudents,1);
 
 /*** total of pages***/
-const pageAppend =(listOfStudents,page)=>{
+const pageAppend =(list)=>{
    
 
    let totalPages = Math.ceil(listOfStudents.length/itemsPerPage);
@@ -80,25 +80,30 @@ const pageAppend =(listOfStudents,page)=>{
    
    
    for (let i = 0; i < totalPages; i++){
-       let li =document.createElement('li');
-       let a = document.createElement('a');
-       a.href='#';
-       a.textContent = i
+         let li =document.createElement('li');
+         let a = document.createElement('a');
+         ul.appendChild(li);
+         a.href = '#';
+
+            
+      
+   
+         
+
+
+   
+   }
        
-
-ul.addEventListener
-
-
-
-       
-       console.log(listOfStudents)
+    
 }
- 
-}
+console.log(listOfStudents)
+
  
 
  
- showPage(listOfStudents,2);
+
+ 
+ showPage(listOfStudents,1);
  
  pageAppend(listOfStudents);
 
