@@ -6,47 +6,22 @@ FSJS project 2 - List Filter and Pagination
 // Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
 
 
-/*** 
-   Add your global variables that store the DOM elements you will 
-   need to reference and/or manipulate. 
-   
-   But be mindful of which variables should be global and which 
-   should be locally scoped to one of the two main functions you're 
-   going to create. A good general rule of thumb is if the variable 
-   will only be used inside of a function, then it can be locally 
-   scoped to that function.
-***/
 
-/* global variables*/
+ //global variables that store DOM elements
 
 let listOfStudents = document.querySelectorAll('.student-item');
 const itemsPerPage = 10;
 
-
-
-
-
-
-
 /*** 
-   Create the `showPage` function to hide all of the items in the 
-   list except for the ten you want to show.
+   Creates`showPage` function to hide all of the items in the 
+   list except for the ten we want***/
 
-   Pro Tips: 
-     - Keep in mind that with a list of 54 students, the last page 
-       will only display four.
-     - Remember that the first student has an index of 0.
-     - Remember that a function `parameter` goes in the parens when 
-       you initially define the function, and it acts as a variable 
-       or a placeholder to represent the actual function `argument` 
-       that will be passed into the parens later when you call or 
-       "invoke" the function 
-***/
 /*points to first student and last-range of students*/
 
 const showPage = (list, page) =>{
-   let indexStart = (page * itemsPerPage) - itemsPerPage;                
    let indexEnd = (page * itemsPerPage);
+   let indexStart = (indexEnd - itemsPerPage);                
+   
 
    for (let i=0;  i < listOfStudents.length; i++){
       if(i >=indexStart && i < indexEnd){
@@ -62,74 +37,47 @@ const showPage = (list, page) =>{
 
 showPage(listOfStudents,1);
 
-/*** total of pages***/
+//creating append function
 const pageAppend =(list)=>{
    
 
-   let totalPages = Math.ceil(listOfStudents.length/itemsPerPage);
+   let totalPages = Math.ceil(listOfStudents.length/itemsPerPage);  //determines total number of pages
   
    console.log(totalPages);
 
-   let div = document.createElement('div'); 
-   let page = document.querySelector('.page');
+   let div = document.createElement('div');                  //creating nodes that allow manioulation of items in HTML
+   let page = document.querySelector('.page');    
    let ul = document.createElement('ul');
-   div.appendChild(ul);  
+   div.appendChild(ul);                                   //append nodes to access information we want
    div.setAttribute('class','pagination');
-   page.appendChild(div);
+   page.appendChild(div);                                //append nodes to access information we want
    
-
-   
-
-   
-   for (let i = 1; i <= totalPages; i++){
-       let li =document.createElement('li');
-      let a = document.createElement('a');
-      a.href = '#';
-      a.textContent = i; 
-      ul.appendChild(li);
-      li.appendChild(a);
-      
-   
-   
-      a.addEventListener('click',()=>{
-      
+   for (let i = 0; i < totalPages; i++){                 //loop for pagination
+         let li =document.createElement('li');           //creates nodes for li and a              
+         let a = document.createElement('a');
          
-         console.log(EventTarget);
+      a.textContent = i+1;       //for page number
+      ul.appendChild(li);  //appends ul and li nodes
+      li.appendChild(a);  //appends a node
 
+      
+      a.addEventListener('click',(e)=>{                                             //event listener
+        
+         const a = document.querySelectorAll('pagination li a');                    //querySelector for pagination class
+         for (k = 0; k < a.length; k++){                                            //loop to select what isn't active and hide 
+            a[k].className='not active';
+         }
          
-      
-      
-      
-      /*** /for (let j = 0; j < links.length; j++) {
-        / links [j].classList.remove ('active');                
-      }
-      
-      link.classList = "active";   ***/                          
-    
-    
-    showPage (listOfStudents, 1);
-   
-   
-   
+         e.target.className='active';                                               //makes event target class active s
          
-
-
-      
+         showPage (listOfStudents,e.target.textContent);                              // hows the 10 we want 
    });
-   
-   
 }
    }
 
-
+showPage(listOfStudents,1);//calling function
  
-
- 
-
- 
- showPage(listOfStudents,1);
- 
- pageAppend(listOfStudents);
+ pageAppend();//calling function
 
 
 
