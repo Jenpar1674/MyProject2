@@ -91,8 +91,9 @@ const pageAppend =(list)=>{
       
    
    
-      document.addEventListener('click',()=>{
+      a.addEventListener('click',()=>{
       
+         
          console.log(EventTarget);
 
          
