@@ -72,7 +72,9 @@ const pageAppend =(list)=>{
          
          showPage (listOfStudents,e.target.textContent);                              // hows the 10 we want 
    });
-}
+
+
+}       
    }
 
 showPage(listOfStudents,1);//calling function
